@@ -1,0 +1,31 @@
+Q. Explain get dummies in Pandas library.
+
+A. get_dummies function in the pandas library, which is commonly used for one-hot encoding categorical variables in a dataframe. One-hot encoding is a technique used in machine learning to convert categorical data into a binary matrix format.
+
+Here's a brief explanation and an example of how to use get_dummies:
+
+############################################################
+import pandas as pd
+
+# Sample DataFrame with a categorical column
+data = {'Category': ['A', 'B', 'A', 'C', 'B']}
+df = pd.DataFrame(data)
+
+# Using get_dummies to one-hot encode the 'Category' column
+df_encoded = pd.get_dummies(df, columns=['Category'])
+
+# Display the result
+print(df_encoded)
+############################################################
+
+Output:
+
+   Category_A  Category_B  Category_C
+0           1           0           0
+1           0           1           0
+2           1           0           0
+3           0           0           1
+4           0           1           0
+
+#############################################################
+In this example, the Category column is one-hot encoded, and new columns are created for each unique category present in the original column. The values are binary, indicating the presence or absence of each category.
